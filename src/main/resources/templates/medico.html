@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+        <div class="card text-center col-md-12">
+            <form action="#" th:action="@{/clinica/medico/criar}" th:object="${medico}" method="post">
+            <div class="card-body">
+              <h5 class="card-title">Preencha o formulário</h5>
+              <div class="mb-2">
+                <label for="nome" class="form-label">Nome do Médico</label>
+                <input type="text" class="form-control" th:field="*{nome}" id="nome">
+              </div>
+              <div class="mb-2">
+                <label for="crm" class="form-label">CRM</label>
+                <input type="text" class="form-control" th:field="*{crm}" id="crm">
+              </div>
+              <div class="mb-2">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" th:field="*{cpf}" id="cpf">
+              </div>
+              <div class="mb-2">
+                <label for="especialidade" class="form-label">Especialidade</label>
+                <input type="text" class="form-control" th:field="*{especialidade}" id="especialidade">
+              </div>
+              <div class="mb-2">
+                <label for="Disponibilidade" class="form-label">Disponibilidade</label>
+                <input type="text" class="form-control" th:field="*{disponibilidade}" id="disponibilidade">
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</a>
+            </div>
+            </form>
+          </div>
+          <br>
+          <a href="/clinica/medico/listar" class="btn btn-success">Listar Médicos Existentes</a>
+        </div>
+</body>
+</html>

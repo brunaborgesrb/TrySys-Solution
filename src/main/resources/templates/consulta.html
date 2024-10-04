@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+        <div class="card text-center col-md-12">
+            <form action="#" th:action="@{/clinica/consulta/criar}" th:object="${consulta}" method="post">
+            <div class="card-body">
+              <h5 class="card-title">Preencha o formulário</h5>
+              <div class="mb-2">
+                <label for="medico" class="form-label">Paciente</label>
+                <select class="form-control" th:field="*{nome}">
+                    <option value="0">Selecione um Paciente</option>
+                    <option th:each="paciente : ${pacientes}" th:value="${paciente.nome}" th:text="${paciente.nome}"></option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label for="medico" class="form-label">Médico</label>
+                <select class="form-control" th:field="*{crmMedico}">
+                    <option value="0">Selecione um Médico</option>
+                    <option th:each="medico : ${medicos}" th:value="${medico.crm}" th:text="${medico.nome}"></option>
+                </select>
+              </div>
+              <div class="mb-2">
+                <label for="ultConsulta" class="form-label">Data da Consulta</label>
+                <input type="date" class="form-control" th:field="*{ultConsulta}" id="ultConsulta">
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</a>
+            </div>
+            </form>
+          </div>
+          <br>
+          <a href="/clinica/consulta/listar" class="btn btn-success">Listar Consultas Existentes</a>
+        </div>
+</body>
+</html>

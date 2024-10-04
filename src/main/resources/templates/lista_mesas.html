@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div>
+      <div th:if="${messagepart}" class="alert alert-success" role="alert" th:text="${messagepart}"></div>
+  </div>
+  <a href="/restaurante/mesa" class="btn btn-success">Adicionar uma Mesa</a>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Número da Mesa</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="mesa : ${mesas}" th:if="${mesa != null}">
+
+            <td th:text="${mesa.numero}"></td>
+            <td th:text="${mesa.cliente}"></td>
+            <td th:text="${mesa.status}"></td>
+            <td> <a th:href="@{/restaurante/mesa/add_pedido/{numero}(numero=${mesa.numero})}"><i class="fa-solid fa-file-pen"></i></a> |
+              <a th:href="@{/restaurante/visualizar/pedido/{numero}(numero=${mesa.numero})}"><i class="fa-solid fa-eye"></a></i> |
+              <a th:href="@{/evento/remover/{nome_evento}(nome_evento=${mesa.numero})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</html>

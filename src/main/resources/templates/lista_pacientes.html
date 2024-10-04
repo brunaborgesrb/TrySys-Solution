@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div>
+      <div th:if="${messagepart}" class="alert alert-success" role="alert" th:text="${messagepart}"></div>
+  </div>
+    <a href="/clinica/paciente" class="btn btn-success">Inserir Novo Paciente</a>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Paciente</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Médico</th>
+            <th scope="col">Última Consulta</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="paciente : ${pacientes}" th:if="${paciente != null}">
+
+            <td th:text="${paciente.nome}"></td>
+            <td th:text="${paciente.cpf}"></td>
+            <td th:text="${paciente.idade}"></td>
+            <td th:text="${paciente.hMedico}"></td>
+            <td th:text="${paciente.ultConsulta}"></td>
+            <td> 
+              <a th:href="@{/clinica/paciente/remover/{nome_paciente}(nome_paciente=${paciente.nome})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</html>

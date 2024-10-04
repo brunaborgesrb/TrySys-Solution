@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+    <div class="card text-center col-md-12">
+        <form action="#" th:action="@{/evento/editar/{nome_evento}(nome_evento=${evento.nome})}" th:object="${evento}" method="post">
+        <div class="card-body">
+          <div class="mb-2">
+            <label for="nome" class="form-label">Nome do Evento</label>
+            <input type="text" class="form-control" th:field="*{nome}" id="nome">
+          </div>
+          <div class="mb-2">
+            <label for="data" class="form-label">Data do Evento</label>
+            <input type="date" class="form-control" th:field="*{data}" id="data">
+          </div>
+          <div class="mb-2">
+            <label for="local" class="form-label">Local</label>
+            <input type="text" class="form-control" th:field="*{local}" id="local">
+          </div>
+          <div class="mb-2">
+            <label for="capacidade" class="form-label">Capacidade</label>
+            <input type="text" class="form-control" th:field="*{capacidade}" id="capacidade">
+          </div>
+          <button type="submit" class="btn btn-primary">Editar</a>
+        </div>
+        </form>
+      </div>
+    </div>
+    <h1>Lista de Participantes</h1>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Participante</th>
+            <th scope="col">Número de Inscrição</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="part : ${participantes}" th:if="${part != null}">
+
+            <td th:text="${part.nome}"></td>
+            <td th:text="${part.numeroInscricao}"></td>
+            <td> <a th:href="@{/evento/removerpart/{nome_evento}/{num_inscricao}(nome_evento=${evento.nome},num_inscricao=${part.numeroInscricao})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>

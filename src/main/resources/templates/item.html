@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+    <div class="card text-center col-md-12">
+        <form action="#" th:action="@{/restaurante/mesa/add_pedido/criar/{numero}(numero=${numeroMesa})}" th:object="${itemPedido}" method="post">
+        <div class="card-body">
+          <h5 class="card-title">Preencha o formulário</h5>
+          <div class="mb-2">
+            <label for="cardapio" class="form-label">Descrição do Item</label>
+            <select class="form-control" th:field="*{descricao}">
+                <option value="0">Selecione um Item</option>
+                <option th:each="cardapio : ${cardapio}" th:value="${cardapio}" th:text="${cardapio}"></option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="quantidade" class="form-label">Quantidade</label>
+            <input type="text" class="form-control" th:field="*{quantidade}" id="quantidade">
+          </div>
+          <div class="mb-2">
+            <label for="total" class="form-label">Total</label>
+            <input type="text" class="form-control" th:field="*{total}" id="total">
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</a>
+        </div>
+        </form>
+      </div>
+      <br>
+      <a href="/restaurante/listar" class="btn btn-success">Listar Mesas</a>
+    </div>
+</body>
+</html>

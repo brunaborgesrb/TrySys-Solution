@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+    <div class="card text-center col-md-12">
+        <form action="#" th:action="@{/restaurante/mesa/criar}" th:object="${mesa}" method="post">
+        <div class="card-body">
+          <h5 class="card-title">Preencha o formulário</h5>
+          <div class="mb-2">
+            <label for="numero" class="form-label">Número da Mesa</label>
+            <input type="text" class="form-control" th:field="*{numero}" id="numero">
+          </div>
+          <div class="mb-2">
+            <label for="cliente" class="form-label">Cliente</label>
+            <input type="text" class="form-control" th:field="*{cliente}" id="cliente">
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar</a>
+        </div>
+        </form>
+      </div>
+      <br>
+      <a href="/restaurante/listar" class="btn btn-success">Listar Mesas</a>
+    </div>
+</body>
+</html>

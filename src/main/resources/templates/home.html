@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+    <style>
+        .container-imagem {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center;     /* Centraliza verticalmente */
+        height: 70vh;           /* Define altura total da viewport para centralização vertical */
+    }
+        .imagem-redonda {
+        width: 30%; /* Define o tamanho da imagem como 50% do seu tamanho original */
+        height: auto; /* Mantém a proporção da altura da imagem */
+        border-radius: 50%; /* Deixa a imagem redonda */
+        margin-top: 0%;
+        object-fit: cover; /* Garante que a imagem seja centralizada e ajustada no espaço disponível */
+}
+    </style>
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <h1 th:text="${message}" style="align-items: center; text-align: center;">Mensagem aqui</h1>
+    <div class="container-imagem">
+        <img th:src="@{/assets/logo.jpeg}" class="imagem-redonda">
+    </div>
+    <div class="container">
+    <p style="align-items: center; text-align: center;">TriSys Solutions, uma empresa especializada na organização de eventos e festas infantis. Nosso compromisso é criar momentos mágicos e inesquecíveis para as crianças, com segurança e conforto.</p>
+    </div>
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+</body>
+</html>

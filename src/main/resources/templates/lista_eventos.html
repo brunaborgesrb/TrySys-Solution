@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div>
+      <div th:if="${messagepart}" class="alert alert-success" role="alert" th:text="${messagepart}"></div>
+  </div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Evento</th>
+            <th scope="col">Data</th>
+            <th scope="col">Local</th>
+            <th scope="col">Capacidade</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="evento : ${eventos}" th:if="${evento != null}">
+
+            <td th:text="${evento.nome}"></td>
+            <td th:text="${evento.data}"></td>
+            <td th:text="${evento.local}"></td>
+            <td th:text="${evento.capacidade}"></td>
+            <td> <a th:href="@{/evento/participante/{nome_evento}(nome_evento=${evento.nome})}"><i class="fa-solid fa-user-plus"></i></a> |
+              <a th:href="@{/evento/visualizar/{nome_evento}(nome_evento=${evento.nome})}"><i class="fa-solid fa-eye"></a></i> |
+              <a th:href="@{/evento/remover/{nome_evento}(nome_evento=${evento.nome})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</html>

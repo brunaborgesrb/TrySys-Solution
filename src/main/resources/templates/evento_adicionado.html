@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="card text-center">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Evento Adicionado com sucesso!</h5>
+          <p class="card-text">Você deseja Adicionar outro Evento?</p>
+          <a href="/evento" class="btn btn-primary">Sim, adicionar outro Evento</a>
+          <a href="/evento/listar" class="btn btn-primary">Listar Eventos Existentes</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+        </div>
+      </div>
+</html>

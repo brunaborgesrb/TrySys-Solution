@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div>
+      <div th:if="${messagepart}" class="alert alert-success" role="alert" th:text="${messagepart}"></div>
+  </div>
+    <a href="/clinica/medico" class="btn btn-success">Inserir Novo Médico</a>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Médico</th>
+            <th scope="col">CRM</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Especialidade</th>
+            <th scope="col">Disponibilidade</th>
+            <th scope="col">Pacientes Atendidos</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="medico : ${medicos}" th:if="${medico != null}">
+
+            <td th:text="${medico.nome}"></td>
+            <td th:text="${medico.crm}"></td>
+            <td th:text="${medico.cpf}"></td>
+            <td th:text="${medico.especialidade}"></td>
+            <td th:text="${medico.disponibilidade}"></td>
+            <td th:text="${medico.Patendidos}"></td>
+            <td> 
+              <a th:href="@{/clinica/medico/remover/{crm}(crm=${medico.crm})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="<http://www.thymeleaf.org>">
+
+    </style>
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div class="container text-center">
+            <div class="row">
+                <a href="/clinica/medico/listar" class="card col-sm-3" style="color: #000000;">
+                    <div class="card-body">
+                        <h5 class="card-title">Médicos</h5>
+                        <i class="fa-solid fa-user-doctor fa-5x"></i>
+                    </div>
+                </a>
+                &nbsp;
+                <a href="/clinica/paciente/listar" class="card col-sm-3" style="color: #000000;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pacientes</h5>
+                        <i class="fa-solid fa-users-line fa-5x"></i>
+                    </div>
+                </a>
+                &nbsp;
+                <a href="/clinica/consulta/listar" class="card col-sm-3" style="color: #000000;">
+                    <div class="card-body">
+                        <h5 class="card-title">Consultas</h5>
+                        <i class="fa-solid fa-hospital-user fa-5x"></i>
+                    </div>
+                </a>
+            </div>
+            </div>
+</body>
+</html>

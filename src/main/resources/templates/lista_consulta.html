@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  
+<body>
+    <th:block th:replace="fragments/header :: header"></th:block>
+    <div>
+      <div th:if="${messagepart}" class="alert alert-success" role="alert" th:text="${messagepart}"></div>
+  </div>
+    <a href="/clinica/consulta" class="btn btn-success">Inserir Nova Consulta</a>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nome do Paciente</th>
+            <th scope="col">Data da Consulta</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="consulta : ${consultas}" th:if="${consulta != null}">
+
+            <td th:text="${consulta.nome}"></td>
+            <td th:text="${consulta.ultConsulta}"></td>
+            <td> 
+              <a th:href="@{/clinica/consulta/remover/{nome_paciente}(nome_paciente=${consulta.nome})}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</html>
