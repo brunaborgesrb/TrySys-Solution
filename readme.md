@@ -1,4 +1,4 @@
-<img src="/assests/logo.jpeg">
+<img src="/assets/logo.jpeg">
 
 # TrySys Solution
 
